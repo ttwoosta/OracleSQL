@@ -55,20 +55,36 @@ ALTER TABLE Aliases
   ADD CONSTRAINT Aliases_Criminal_ID_fk FOREIGN KEY(Criminal_ID)
   REFERENCES Criminals(Criminal_ID);
 
+/* NULL value isn't allowed in FK key */
+ALTER TABLE Aliases
+  MODIFY (Criminal_ID NOT NULL);
+
 /* Add foreign key to table Crimes */
 ALTER TABLE Crimes
   ADD CONSTRAINT Crimes_Criminal_ID_fk FOREIGN KEY(Criminal_ID)
   REFERENCES Criminals(Criminal_ID);
+
+/* NULL value isn't allowed in FK key */
+ALTER TABLE Crimes
+  MODIFY (Criminal_ID NOT NULL);
 
 /* Add Criminal_ID foreign key to table Sentence */
 ALTER TABLE Sentences
   ADD CONSTRAINT Sentences_Criminal_ID_fk FOREIGN KEY(Criminal_ID)
   REFERENCES Criminals(Criminal_ID);
 
+/* NULL value isn't allowed in FK key */
+ALTER TABLE Sentences
+  MODIFY (Criminal_ID NOT NULL);
+
 /* Add Prob_ID foreign key to table Sentence */
 ALTER TABLE Sentences
   ADD CONSTRAINT Sentences_Prob_ID_fk FOREIGN KEY(Prob_ID)
   REFERENCES Prob_officers(Prob_ID);
+
+/* NULL value isn't allowed in FK key */
+ALTER TABLE Sentences
+  MODIFY (Prob_ID NOT NULL);
 
 /***************************************/
 /********** CHECK CONSTRAINTS **********/
@@ -109,8 +125,8 @@ ALTER TABLE Officers
 /* Create table Crime Charges */
 CREATE TABLE Crime_charges (
   Charge_ID     NUMBER(10,0),   -- primary key
-  Crime_ID      NUMBER(9,0),    -- foreign key
-  Crime_code    NUMBER(3,0),    -- foreign key
+  Crime_ID      NUMBER(9,0) NOT NULL,    -- foreign key
+  Crime_code    NUMBER(3,0) NOT NULL,    -- foreign key
   Charge_status CHAR(2) DEFAULT 'PD',
   Fine_amount   NUMBER(7,2),
   Court_fee     NUMBER(7,2),
@@ -143,7 +159,7 @@ CREATE TABLE Crime_officers (
 /* Create table Appeals */
 CREATE TABLE Appeals (
   Appeal_ID       NUMBER(5),      -- primary key
-  Crime_ID        NUMBER(9,0),    -- foreign key
+  Crime_ID        NUMBER(9,0) NOT NULL,    -- foreign key
   Filing_Date     DATE,
   Hearing_Date    DATE,
   Status          CHAR(1) DEFAULT 'P',
