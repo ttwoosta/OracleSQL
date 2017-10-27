@@ -20,12 +20,12 @@ INSERT INTO criminals (criminal_id, last, first, street, city, state, zip, phone
   VALUES (1016, 'Sauder', 'Bill', '11 Apple Rd', 'Virginia Beach', 'VA', 23455, 7678217443, 'N', 'N');
   
 INSERT INTO criminals (criminal_id, last, first, street, city, state, zip, phone, v_status, p_status)
-  VALUES (1017, 'Painter', 'Troy', '77 Ship Lane', 'Norfolk', 'VA', 22093, 7677655454, 'N', 'N')
+  VALUES (1017, 'Painter', 'Troy', '77 Ship Lane', 'Norfolk', 'VA', 22093, 7677655454, 'N', 'N');
   
 /* Add a column Mail_flag to the CRIMINALS table.
   The column should be assigned a datatype of CHAR(1) */
 ALTER TABLE criminals
-  INSERT (mail_flag CHAR(1));
+  ADD (mail_flag CHAR(1));
   
 /* Set the Mail_flag column to a value of 'Y' for all criminals */
 UPDATE criminals
@@ -59,7 +59,7 @@ CityJail_5.sql file to identify table constraints.*/
 -- Add a crime record with id 100
 INSERT INTO crimes (crime_id, criminal_id, classification, date_charged, status)
   VALUES (100, 1010, 'M', 'JUL-15-2009', 'PD');
- 
+
 -- Add a crime record with id 130
 INSERT INTO crimes (crime_id, criminal_id, classification, date_charged, status)
   VALUES (130, 1016, 'M', 'JUL-15-2009', 'PD');
