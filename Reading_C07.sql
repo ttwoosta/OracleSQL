@@ -81,3 +81,17 @@ CREATE ROLE c##supervisior;
 
 GRANT c##order_role, c##billing_role
   TO c##supervisior;
+
+-- verifying active system privileges and roles
+SELECT *
+  FROM user_sys_privs;
+  
+SELECT *
+  FROM user_role_privs;
+  
+-- verifying privileges assigned to a role
+SELECT *
+  FROM role_tab_privs
+  WHERE role = 'C##BILLING_ROLE'
+  ORDER BY table_name;
+  
