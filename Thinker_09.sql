@@ -35,3 +35,14 @@ SELECT *
 SELECT *
   FROM books
   WHERE pubdate LIKE '%03';
+  
+
+SELECT CONCAT(firstname, lastname) FROM customers;
+SELECT INITCAP(lastname) FROM customers;
+SELECT LENGTH(customer#) FROM customers;
+
+	
+?SELECT CONCAT(LOWER(firstname), ' ', LOWER(lastname))
+  FROM customers;
+SELECT LOWER(firstname) || ' ' || LOWER(lastname) FROM customers;
+  
